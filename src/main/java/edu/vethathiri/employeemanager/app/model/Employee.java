@@ -6,7 +6,8 @@ import java.io.Serializable;
 @Entity
 public class Employee implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPLOYEE_ID_SEQ")
+    @SequenceGenerator(name = "EMPLOYEE_ID_SEQ", sequenceName = "EMPLOYEE_ID_SEQ", allocationSize = 1)
     @Column(nullable = false, updatable = false)
     private Long id;
     private String name;
